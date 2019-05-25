@@ -1,5 +1,9 @@
 /*
 Eatcpu is a command that just uses CPU time in a hopefully controlled way.
+In theory this happens by endlessly incrementing an integer variable. In
+practice, the Go compiler is smart enough to compile this down to an
+infinite loop (as of Go 1.12.5), which means that we aren't even using
+the CPU's integer ALU.
 
 usage: eatcpu [<N>]
 
